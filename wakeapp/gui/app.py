@@ -1,13 +1,15 @@
 import tkinter as tk
 from tkinter import ttk
+from tkinter import font
+from turtle import bgcolor, width
 from wakeapp.utils.bvg_api import bvg_api
 
 class app:
     def __init__(self, bvg: bvg_api) -> None:
         self.bvg = bvg
         self.root = tk.Tk()
-        self.window_height = 400
-        self.window_width = 250
+        self.window_height = 500
+        self.window_width = 700
         self.arrival_time_value = tk.StringVar(value="19:00")
         self.prep_time_value = tk.StringVar(value="00:30")
         self.start_point_value = tk.StringVar(value="")
@@ -18,12 +20,16 @@ class app:
         
 
     def init_gui(self) -> None:
-        self.root.geometry(f"{self.window_width}x{self.window_height}")
         self.root.resizable(True, True)
         self.root.title("WakeApp")
+        self.root.geometry(f"{self.window_width}x{self.window_height}")
+        self.root.configure(bg="#E5E5E5")
+        default_font = font.nametofont('TkDefaultFont')
+        default_font.configure(size=16)
+        self.root.option_add("*Font", default_font)
 
-        self.frame = ttk.Frame(self.root, height=self.window_height, width=self.window_width)
-        self.frame.pack(fill=tk.BOTH, expand=True)
+        self.frame = ttk.Frame(self.root)
+        self.frame.pack(fill=tk.X, expand=True)
 
         self.arrival_label = ttk.Label(self.frame, text="Ankuftszeit (HH:MM): ")
         self.arrival_label.pack(fill=tk.X, expand=True)
@@ -56,9 +62,10 @@ class app:
         self.destination_input.pack(fill="x", expand=True)
 
         # display wake time
-        self.wake_time_label = ttk.Label(self.frame, text="Weckzeit:").pack()
-        self.wake_time_display = ttk.Label(self.frame, text=self.wake_time).pack()
-
+        self.wake_time_label = ttk.Label(self.frame, text="Weckzeit:")
+        self.wake_time_label.pack()
+        self.wake_time_display = ttk.Label(self.frame, textvariable=self.wake_time)
+        self.wake_time_display.pack()
         # submit button
         self.submit_button = ttk.Button(self.frame, text="berechnen", command=self.submit_click)
         self.submit_button.pack()
