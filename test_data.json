@@ -1,0 +1,78 @@
+[
+  {
+    "origin": {
+      "type": "stop",
+      "id": "900000078102",
+      "name": "U Rathaus Neukölln",
+      "location": {
+        "type": "location",
+        "id": "900078102",
+        "latitude": 52.481147,
+        "longitude": 13.43481
+      },
+      "products": {
+        "suburban": false,
+        "subway": true,
+        "tram": false,
+        "bus": true,
+        "ferry": false,
+        "express": false,
+        "regional": false
+      }
+    },
+    "destination": {
+      "type": "stop",
+      "id": "900000017101",
+      "name": "U Mehringdamm",
+      "location": {
+        "type": "location",
+        "id": "900017101",
+        "latitude": 52.49357,
+        "longitude": 13.388138
+      },
+      "products": {
+        "suburban": false,
+        "subway": true,
+        "tram": false,
+        "bus": true,
+        "ferry": false,
+        "express": false,
+        "regional": false
+      }
+    },
+    "departure": "2022-05-19T22:51:00+02:00",
+    "plannedDeparture": "2022-05-19T22:51:00+02:00",
+    "departureDelay": null,
+    "arrival": "2022-05-19T22:58:00+02:00",
+    "plannedArrival": "2022-05-19T22:58:00+02:00",
+    "arrivalDelay": null,
+    "reachable": true,
+    "tripId": "1|33855|9|86|19052022",
+    "line": {
+      "type": "line",
+      "id": "u7",
+      "fahrtNr": "19094",
+      "name": "U7",
+      "public": true,
+      "adminCode": "BVU",
+      "productName": "U",
+      "mode": "train",
+      "product": "subway",
+      "operator": {
+        "type": "operator",
+        "id": "berliner-verkehrsbetriebe",
+        "name": "Berliner Verkehrsbetriebe"
+      },
+      "symbol": "U",
+      "nr": 7,
+      "metro": false,
+      "express": false,
+      "night": false
+    },
+    "direction": "S+U Rathaus Spandau",
+    "arrivalPlatform": "4",
+    "plannedArrivalPlatform": "4",
+    "departurePlatform": "2",
+    "plannedDeparturePlatform": "2"
+  }
+]
