@@ -10,6 +10,8 @@ class app:
         self.root = tk.Tk()
         self.window_height = 500
         self.window_width = 700
+
+        # basic internal values
         self.arrival_time_value = tk.StringVar(value="19:00")
         self.prep_time_value = tk.StringVar(value="00:30")
         self.start_point_value = tk.StringVar(value="")
@@ -46,7 +48,7 @@ class app:
         self.prep_entry.pack(fill="x", expand=True)
 
 
-        # start point input
+        # origin input
         self.start_label = ttk.Label(self.frame, text="Wohnort: ")
         self.start_label.pack(fill="x", expand=True)
 
@@ -66,13 +68,13 @@ class app:
         self.wake_time_label.pack()
         self.wake_time_display = ttk.Label(self.frame, textvariable=self.wake_time)
         self.wake_time_display.pack()
+
         # submit button
         self.submit_button = ttk.Button(self.frame, text="berechnen", command=self.submit_click)
         self.submit_button.pack()
 
     def submit_click(self):
-        pass
-
+        ...
 
     def run(self):
         self.root.mainloop()
