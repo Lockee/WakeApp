@@ -23,10 +23,10 @@ class app:
         self.root.title("WakeApp")
 
         self.frame = ttk.Frame(self.root, height=self.window_height, width=self.window_width)
-        self.frame.pack(fill="both", expand=True)
+        self.frame.pack(fill=tk.BOTH, expand=True)
 
         self.arrival_label = ttk.Label(self.frame, text="Ankuftszeit (HH:MM): ")
-        self.arrival_label.pack(fill="x", expand=True)
+        self.arrival_label.pack(fill=tk.X, expand=True)
 
         self.arrival_entry = ttk.Entry(self.frame, textvariable=self.arrival_time_value)
         self.arrival_entry.pack(fill="x", expand=True)
