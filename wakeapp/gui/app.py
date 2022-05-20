@@ -80,8 +80,8 @@ class app:
         arrival_time = self.arrival_time_value.get()
         depature_time, arrival_time = self.controller.bvg.fetch_depature_arrival_time(origin,destination, arrival_time)
         
-        self.controller.time.arrival = arrival_time
-        self.controller.time.depature = depature_time
+        self.controller.time.arrival = datetime.fromisoformat(arrival_time)
+        self.controller.time.depature = datetime.fromisoformat(depature_time)
 
         travel_time = self.controller.time.calculate_travel_time()
         print(travel_time)

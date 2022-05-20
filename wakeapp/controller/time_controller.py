@@ -1,4 +1,4 @@
-from datetime import datetime, time
+from datetime import datetime, time, timedelta
 
 
 class TimeController:
@@ -9,7 +9,8 @@ class TimeController:
             self.depature = datetime.now()
 
     def calculate_travel_time(self) -> time:
-        ...
+        time_diff = self.arrival - self.depature
+        return time_diff
 
     
     def get_wakeup_datetime(self, get_ready: time) -> datetime:
