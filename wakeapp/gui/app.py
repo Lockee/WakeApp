@@ -1,12 +1,12 @@
 import tkinter as tk
 from tkinter import ttk
 from tkinter import font
-from turtle import bgcolor, width
+from wakeapp.controller.app_controller import AppController
 from wakeapp.utils.bvg_api import bvg_api
 
 class app:
-    def __init__(self, bvg: bvg_api) -> None:
-        self.bvg = bvg
+    def __init__(self) -> None:
+        self.controller = AppController()
         self.root = tk.Tk()
         self.window_height = 500
         self.window_width = 700
