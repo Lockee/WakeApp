@@ -14,3 +14,7 @@ class TimeController:
     
     def get_wakeup_datetime(self, get_ready: time) -> datetime:
         ...
+
+    def convert_string_to_time_object(time: str) -> time:
+        (hour, minutes) = time.split(":")
+        return time(hour=hour, minute=minutes)
