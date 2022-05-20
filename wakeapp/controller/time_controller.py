@@ -8,9 +8,9 @@ class TimeController:
         if depature is None:
             self.depature = datetime.now()
 
-    def calculate_travel_time(self) -> time:
+    def calculate_travel_time(self) -> datetime:
         time_diff = self.arrival - self.depature
-        return time_diff
+        return (str(time_diff).split(":"))
 
     
     def get_wakeup_datetime(self, get_ready: time) -> datetime:
