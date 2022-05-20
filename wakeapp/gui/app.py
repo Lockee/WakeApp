@@ -1,3 +1,4 @@
+from datetime import datetime
 import tkinter as tk
 from tkinter import ttk
 from tkinter import font
@@ -74,7 +75,16 @@ class app:
         self.submit_button.pack()
 
     def submit_click(self):
-        ...
+        destination = self.controller.bvg.fetch_location_id(self.destination_value.get())
+        origin = self.controller.bvg.fetch_location_id(self.start_point_value.get())
+        arrival_time = self.arrival_time_value.get()
+        depature_time, arrival_time = self.controller.bvg.fetch_depature_arrival_time(origin,destination, arrival_time)
+        
+        self.controller.time.arrival = arrival_time
+        self.controller.time.depature = depature_time
+
+        travel_time = self.controller.time.calculate_travel_time()
+        print(travel_time)
 
     def run(self):
         self.root.mainloop()
