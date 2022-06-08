@@ -78,13 +78,15 @@ class app:
         destination = self.controller.bvg.fetch_location_id(self.destination_value.get())
         origin = self.controller.bvg.fetch_location_id(self.start_point_value.get())
         arrival_time = self.arrival_time_value.get()
+        # this could be possibly incorrect. arrival time no datetime object
         depature_time, arrival_time = self.controller.bvg.fetch_depature_arrival_time(origin,destination, arrival_time)
         
         self.controller.time.arrival = datetime.fromisoformat(arrival_time)
         self.controller.time.depature = datetime.fromisoformat(depature_time)
 
-        travel_time = self.controller.time.calculate_travel_time()
-        print(travel_time)
+        travel_time = self.controller.time.get_wakeup_datetime(self.prep_time_value.get())
+        self.wake_time.set(travel_time.strftime("%m/%d/%Y, %H:%M:%S"))
+        print(travel_time, self.wake_time.get())
 
     def run(self):
         self.root.mainloop()

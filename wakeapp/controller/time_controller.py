@@ -1,4 +1,4 @@
-from datetime import datetime, time
+from datetime import datetime, time, timedelta
 from typing import Tuple
 
 from wakeapp.utils.regex_utils import check_string
@@ -11,15 +11,20 @@ class TimeController:
         if depature is None:
             self.depature = datetime.now()
 
-    def calculate_travel_time(self) -> Tuple[str,str,str]:
+    def calculate_travel_time(self) -> Tuple[float,float,float]:
         """Return a Tuple of hour, minute and second calculated by the internal arrival and depature time"""
         time_diff = self.arrival - self.depature
-        return (str(time_diff).split(":"))
+        return map(float, (str(time_diff).split(":")))
 
     
-    def get_wakeup_datetime(self, get_ready: time) -> datetime:
+    def get_wakeup_datetime(self, get_ready: str) -> datetime:
         hours, minutes, seconds = self.calculate_travel_time()
-        travel_time = time(hour=hours, minute=minutes, seconds=seconds)
+        travel_time = timedelta(seconds=seconds,minutes=minutes, hours=hours)
+        get_ready_hour, get_ready_minutes = map(float,get_ready.split(':'))
+        get_ready_timedelta = timedelta(hours=get_ready_hour,minutes=get_ready_minutes)
+        print(hours, minutes, seconds)
+        print(get_ready_timedelta)
+        return (self.depature - get_ready_timedelta) - travel_time
         
 
     def convert_string_to_time_object(time: str) -> time | None:
