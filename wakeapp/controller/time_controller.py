@@ -22,9 +22,10 @@ class TimeController:
         travel_time = timedelta(seconds=seconds,minutes=minutes, hours=hours)
         get_ready_hour, get_ready_minutes = map(float,get_ready.split(':'))
         get_ready_timedelta = timedelta(hours=get_ready_hour,minutes=get_ready_minutes)
-        print(hours, minutes, seconds)
+        print(travel_time)
         print(get_ready_timedelta)
-        return (self.depature - get_ready_timedelta) - travel_time
+        print(self.depature)
+        return (self.depature - get_ready_timedelta)
         
 
     def convert_string_to_time_object(time: str) -> time | None:

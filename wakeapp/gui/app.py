@@ -1,9 +1,10 @@
-from datetime import datetime
 import tkinter as tk
-from tkinter import ttk
-from tkinter import font
+from datetime import datetime
+from tkinter import font, ttk
+
 from wakeapp.controller.app_controller import AppController
 from wakeapp.utils.bvg_api import bvg_api
+
 
 class app:
     def __init__(self) -> None:
@@ -15,8 +16,8 @@ class app:
         # basic internal values
         self.arrival_time_value = tk.StringVar(value="19:00")
         self.prep_time_value = tk.StringVar(value="00:30")
-        self.start_point_value = tk.StringVar(value="")
-        self.destination_value = tk.StringVar(value="")
+        self.start_point_value = tk.StringVar(value="Rathaus Spandau")
+        self.destination_value = tk.StringVar(value="Grenzallee")
         self.wake_time = tk.StringVar(value="00:00")
 
         self.init_gui()

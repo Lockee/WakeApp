@@ -1,8 +1,9 @@
+import json
 from dataclasses import dataclass
 from datetime import datetime
 from typing import Tuple
+
 import requests
-import json
 
 BVGLocationId = int
 
